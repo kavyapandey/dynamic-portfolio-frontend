@@ -1,0 +1,15 @@
+.coveralign{
+    text-align:center;
+    display: table-cell;
+    vertical-align:middle;
+}
+
+.noPadding{
+    padding: 0%;
+}
+
+.imageAlign{
+    height: 70vh;
+    width: -webkit-fill-available;
+    overflow: hidden;
+}
