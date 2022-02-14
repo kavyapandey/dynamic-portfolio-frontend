@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import './signIn.css';
 export default function SignIn(props){
-    const{isUserLoggedIn,userToRegeister}=props;
+    const{isUserLoggedIn,userToRegeister,userName}=props;
     const[username,setUsername]=useState("");
     const[password,setPassword]=useState("");
    
@@ -15,6 +15,7 @@ export default function SignIn(props){
         e.preventDefault()
         const data = await axios.post(`https://dynamicportfoliobackend.herokuapp.com/signin`,{username,password})
         isUserLoggedIn(data.data.status)
+        userName(data.data.message)
         setmessage(data.data.message)
     }
    
