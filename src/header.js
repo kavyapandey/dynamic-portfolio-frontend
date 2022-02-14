@@ -22,7 +22,7 @@ export default function Header(props){
   const [title, setTitle] = useState("Transitioning...");
 
   const [modalState,setModalState] = useState("");
-  const {templateChosen,coverChosen,aboutChosen,educationChosen,experienceChosen,skillsChosen,contactChosen}=props;
+  const {loggedUser,templateChosen,coverChosen,aboutChosen,educationChosen,experienceChosen,skillsChosen,contactChosen}=props;
   
   const defaultTemplateSelection = () =>{
     setModalState("modal-defaultTemplate");
@@ -293,6 +293,9 @@ const handleChooseContact =(e) =>{
            <button  id="skills" class="dropdown-item btn btn-light" onClick={skillsSelection}>Add skills</button>
            <button  id="contact" class="dropdown-item btn btn-light" onClick={contactSelection}>Add Contact</button>
           </div>
+        </li>
+        <li class="nav-item">
+          <h5 class="nav-link noButtonClass">{loggedUser}</h5>
         </li>
       </ul>
     </div>
