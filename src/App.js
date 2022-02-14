@@ -250,7 +250,7 @@ const [currentEducationPage,setCurrentEducation] = useState("");
 const [currentExperiencePage,setCurrentExperience] = useState("");
 const [currentSkillsPage,setCurrentSkills] = useState("");
 const [currentContactPage,setCurrentContact] = useState("");
-
+const [userN, setUserName] = useState("");
   const templateChosen = (choice)=>{
     setPages(()=>(initialState))
     setPages(pages => [...pages,choice]);
@@ -294,6 +294,13 @@ const [currentContactPage,setCurrentContact] = useState("");
   const userToRegeister = (status)=>{
     setToRegister(status);
   }
+  const userName = (name) =>{
+    if(name!==""){
+    
+      var User = name.match(/^([^@]*)@/)[1];
+      setUserName(User);
+  }
+}
   const printDocument=()=> {
   
 
@@ -387,7 +394,7 @@ if(divToStyle==="contact"){
     isLoggedIn ?
    
     (<div className="container-fluid">
-    <Header templateChosen={templateChosen} coverChosen={coverChosen} aboutChosen={aboutChosen}
+    <Header loggedUser={userN} templateChosen={templateChosen} coverChosen={coverChosen} aboutChosen={aboutChosen}
      educationChosen={educationChosen} experienceChosen={experienceChosen}
      skillsChosen={skillsChosen} contactChosen={contactChosen}></Header>
 
@@ -458,9 +465,10 @@ if(divToStyle==="contact"){
     </div>)
     : (toRegister ? (<Register isUserLoggedIn={isUserLoggedIn} userToRegeister={userToRegeister}/>):
       
-     ( <SignIn isUserLoggedIn={isUserLoggedIn} userToRegeister={userToRegeister}/>))
+     ( <SignIn isUserLoggedIn={isUserLoggedIn} userToRegeister={userToRegeister} userName={userName}/>))
    
   );
 }
 
 export default App;
+
